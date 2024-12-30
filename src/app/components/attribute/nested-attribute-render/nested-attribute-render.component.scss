@@ -1,0 +1,42 @@
+.padding-level-0 {
+  padding-left: 7px !important;
+}
+.padding-level-1 {
+  padding-left: 25px !important;
+}
+.padding-level-2 {
+  padding-left: 50px !important;
+}
+.padding-level-3 {
+  padding-left: 75px !important;
+}
+
+.att-box {
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  height: 25px !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  padding: 5px;
+}
+
+.search-box {
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.search-input {
+  width : calc(100% - 25px) !important;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+// .att-container {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+// }

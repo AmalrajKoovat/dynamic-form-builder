@@ -1,0 +1,41 @@
+<div class="p-10">
+  <div class="search-box m-b-10">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="Search attributes"
+      [(ngModel)]="searchQuery"
+      (ngModelChange)="filterAttributes()"
+    />
+  </div>
+  <div class="ele-container">
+    <mat-accordion class="elements-container w-100">
+      <!-- Basic Elements Panel -->
+      <mat-expansion-panel class="m-b-10">
+        <mat-expansion-panel-header>
+          <mat-panel-title class="poppins-font">Basic Elements</mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="list-items">
+          <div *ngFor="let item of basicElements" class="list-item">
+            <!-- <mat-icon>{{ item.icon }}</mat-icon> -->
+            <span>{{ item.name }}</span>
+          </div>
+        </div>
+      </mat-expansion-panel>
+
+      <!-- Layout Elements Panel -->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title class="poppins-font">Layout Elements</mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="list-items">
+          <div *ngFor="let item of layoutElements" class="list-item">
+            <!-- <mat-icon>{{ item.icon }}</mat-icon> -->
+            <span>{{ item.name }}</span>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+  </div>
+</div>

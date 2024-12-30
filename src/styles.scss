@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+}
+
+* {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+select {
+  height: 40px; /* Adjust select box height */
+  padding: 5px; /* Padding for the select box */
+  border-radius: 5px; /* Rounded corners */
+}
+
+/* Style individual options */
+select option {
+  height: 40px;
+  padding: 5px;
+}
+
+/* Hover styling for options */
+select option:hover {
+  background-color: var(--dropdown-contents-hover-bg-color) !important;
+  color: white !important;
+}
+
+/* Style for selected options */
+select option:checked {
+  background-color: var(--dropdown-contents-hover-bg-color) !important;
+  color: white !important;
+}
+

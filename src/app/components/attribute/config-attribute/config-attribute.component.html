@@ -1,0 +1,44 @@
+<div class="modal-overlay">
+  <div class="modal-container">
+    <div class="modal-header">
+      <h3>Configure Attribute</h3>
+      <button class="close-button" (click)="close()">×</button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="attributeForm">
+        <!-- Type Field -->
+        <div class="form-group">
+          <label for="type" class="w-100">Type <span class="required">*</span></label>
+          <select formControlName="type" id="type" class="form-control input-field w-100">
+            <option *ngFor="let type of attributeTypes" [value]="type">{{ type }}</option>
+          </select>
+        </div>
+
+        <!-- Parent Field -->
+        <div class="form-group">
+          <label for="parent" class="w-100">Parent</label>
+          <select formControlName="parent" id="parent" class="form-control input-field w-100">
+            <option *ngFor="let parent of attributesList" [value]="parent.name">{{ parent.name }}</option>
+          </select>
+        </div>
+
+        <!-- Checkbox Fields -->
+        <div class="form-group checkbox-group m-t-10">
+          <div class="d-flex align-center m-b-8">
+            <input type="checkbox" id="hideLabel" formControlName="hideLabel" class="custom-checkbox" />
+            <label for="hideLabel">Hide Label</label>
+          </div>
+          <div class="d-flex align-center">
+            <input type="checkbox" id="fileUpload" formControlName="fileUpload" class="custom-checkbox" />
+            <label for="fileUpload">File Upload</label>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="cancel-button" (click)="close()">Cancel</button>
+      <button class="save-button" [disabled]="!attributeForm.valid" (click)="save()">Save</button>
+    </div>
+  </div>
+</div>
+

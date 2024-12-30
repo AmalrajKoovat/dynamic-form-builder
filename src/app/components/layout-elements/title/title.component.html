@@ -1,0 +1,9 @@
+<div
+  class="title-container"
+  [ngStyle]="{ 'justify-content': justifyContent }"
+  (mousedown)="startDrag($event)"
+  (mouseup)="endDrag($event)"
+  (mouseleave)="endDrag($event)"
+>
+  <h3 class="title">{{ element?.title }}</h3>
+</div>

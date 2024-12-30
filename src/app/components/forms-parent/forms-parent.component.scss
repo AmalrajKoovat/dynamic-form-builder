@@ -1,0 +1,40 @@
+.forms-parent{
+  background-color: white;
+  height: calc(100vh - 90px);
+  display: flex;
+  padding: 25px;
+  border-radius: 6px;
+}
+
+.tabs-container {
+  position: relative;
+  width: 100%; /* Set the maximum width for the line */
+}
+
+.b-line {
+  border-bottom: 1px gray !important;
+  position: absolute !important;
+  top: 44px !important;
+  width: 100%;
+  margin: 0px;
+}
+
+
+::ng-deep .vertical-tab-group .mat-mdc-tab.mdc-tab--active {
+  color: white !important;
+  background-color: #006678 !important;
+}
+
+::ng-deep .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
+  color: white !important;
+}
+
+::ng-deep .mat-mdc-tab.mdc-tab {
+  min-width: 70px !important;
+  max-width: 120px !important;
+}
+
+::ng-deep .mat-mdc-tab-label-container {
+  height: 40px !important;
+  align-items: center !important;
+}

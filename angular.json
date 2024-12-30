@@ -37,7 +37,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.scss",
+              "src/assets/css/commonCss.css",
+              "src/assets/css/style-guide.css"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
@@ -102,12 +105,18 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.scss",
+              "src/assets/css/commonCss.css",
+              "src/assets/css/style-guide.css"
             ],
             "scripts": []
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "0262950e-4f24-456d-afd9-eaefca889e88"
   }
 }

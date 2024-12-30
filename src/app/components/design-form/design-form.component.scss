@@ -1,0 +1,142 @@
+.design-container {
+  overflow: auto;
+  height: calc(85vh - 30px) !important;
+}
+
+.elements-container {
+  border: 1px solid #ddd;
+  border-radius: 7px !important;
+}
+
+.tabs-container {
+  position: relative;
+  width: 100%; /* Set the maximum width for the line */
+}
+
+.b-line {
+  border-bottom: 1px gray !important;
+  position: absolute !important;
+  top: 47px !important;
+  width: 100%;
+  margin: 0px;
+}
+
+.b-line-tab {
+  top: 40px !important;
+  border-bottom: 3px #006678 !important;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+  padding: 1rem;
+
+  .info-section {
+    display: flex;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #333;
+
+    .separator {
+      margin: 0 8px;
+      color: #bbb;
+    }
+
+    i.material-icons {
+      font-size: 20px;
+      color: #006678;
+    }
+
+    .title {
+      font-weight: 600;
+    }
+
+    .form-id,
+    .form-version {
+      font-weight: 400;
+      color: #666;
+    }
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+
+    button {
+      display: flex;
+      align-items: center;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      text-transform: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+
+      i.material-icons {
+        font-size: 18px;
+        margin-right: 4px;
+      }
+
+      &.btn-primary {
+        background-color: #006678;
+        color: white;
+        border: none;
+      }
+
+      &.btn-secondary {
+        background-color: #ccc;
+        color: black;
+        border: none;
+      }
+
+      &.btn-success {
+        background-color: #28a745;
+        color: white;
+        border: none;
+      }
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+}
+
+.dotted-container {
+  border: 2px dashed #bbb;
+  background-color: #f5f5f5;
+  height: 300px; /* Adjust based on your needs */
+  margin-top: 15px !important;
+  margin: 5px;
+  padding: 1rem;
+}
+
+
+::ng-deep .tab-group .mat-mdc-tab.mdc-tab--active {
+  background-color: white !important;
+  color: gray !important;
+  // border-bottom: 3px #006678 !important;
+}
+
+::ng-deep .tab-group .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
+  color: rgba(0, 0, 0, 0.6) !important;
+}
+
+::ng-deep .tab-group .mat-mdc-tab.mdc-tab {
+  min-width: 70px !important;
+  max-width: 200px !important;
+}
+
+::ng-deep .tab-group .mat-mdc-tab .mdc-tab-indicator__content--underline {
+  border-color: #006678 !important;
+}
+
+::ng-deep .tab-group .mat-mdc-tab-label-container {
+  height: 47px !important;
+  align-items: center !important;
+}
+
+

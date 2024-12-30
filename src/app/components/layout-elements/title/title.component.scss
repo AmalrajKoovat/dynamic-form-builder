@@ -1,0 +1,17 @@
+.title-container {
+  width: 100%;
+  height: 100px; /* Adjust as needed */
+  position: relative;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Prevent title from going outside container */
+  padding: 10px;
+}
+
+.title {
+  position: absolute; /* Enables the title to move freely */
+  transition: transform 0.3s ease; /* Smooth snapping */
+  cursor: grab;
+}

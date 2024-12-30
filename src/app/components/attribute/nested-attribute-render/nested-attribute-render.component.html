@@ -1,0 +1,41 @@
+<div class="p-10 att-container">
+
+  <div class="search-box">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="Search attributes"
+      [(ngModel)]="searchQuery"
+      (ngModelChange)="filterAttributes()"
+    />
+  </div>
+
+  <ng-container *ngFor="let attribute of attributesList; let i = index">
+    <ng-container [ngTemplateOutlet]="renderAttribute" [ngTemplateOutletContext]="{ attribute: attribute, level: 0, uniqueId: i + '' }"></ng-container>
+  </ng-container>
+  <ng-template #renderAttribute let-attribute="attribute" let-level="level" let-uniqueId="uniqueId">
+    <tr
+      class="p-relative"
+      (mouseenter)="hoveredRow = uniqueId"
+      (mouseleave)="hoveredRow = null"
+    >
+      <!-- <td></td> -->
+      <td [class]="'padding-level-' + level">
+        <span class="att-box">{{ attribute.name }}</span>
+      </td>
+      <!-- <td>{{ attribute.description }}</td> -->
+    </tr>
+    <ng-container *ngIf="attribute.children?.length">
+      <ng-container *ngFor="let child of attribute.children; let childIndex = index">
+        <ng-container
+          [ngTemplateOutlet]="renderAttribute"
+          [ngTemplateOutletContext]="{
+            attribute: child,
+            level: level + 1,
+            uniqueId: uniqueId + '-' + childIndex
+          }"
+        ></ng-container>
+      </ng-container>
+    </ng-container>
+  </ng-template>
+</div>

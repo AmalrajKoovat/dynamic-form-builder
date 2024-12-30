@@ -1,0 +1,18 @@
+.image-container {
+  width: 100%; /* Fixed container width */
+  min-height: 250px;
+  max-height: 300px; /* Fixed container height */
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc; /* Optional: Add a default border */
+  overflow: hidden;
+  position: relative;
+}
+
+.draggable-image {
+  cursor: grab;
+  position: absolute; /* Allows movement within the container */
+  transition: transform 0.1s;
+}

@@ -1,0 +1,137 @@
+<div class="about-container">
+  <div class="form-section p-10 p-t-20 m-t-10">
+    <form [formGroup]="formCreate">
+        <div class="w-100 d-flex  m-b-20 w-100 flex-1">
+            <p class="m-b-0 m-t-10 w-25 f-w-500 t-primary">Form Name (EN)</p>
+            <input type="text" class="input-field p-l-5 f-s-14 w-75" placeholder="Form Name(EN)"
+                formControlName="nameEn" id="GroupName">
+        </div>
+        <div class="w-100 d-flex  m-b-20 w-100 flex-1">
+          <p class="m-b-0 m-t-10 w-25 f-w-500 t-primary">Form Name (FR)</p>
+          <input type="text" class="input-field p-l-5 f-s-14 w-75" placeholder="Form Name(FR)"
+              formControlName="nameFr" id="GroupName">
+        </div>
+        <div class="w-100 d-flex  m-b-20 w-100 flex-1">
+          <p class="m-b-0 m-t-10 w-25 f-w-500 t-primary">GDTI</p>
+          <input type="text" class="input-field p-l-5 f-s-14 w-75" placeholder="GDTI"
+              formControlName="gdti" id="GroupName">
+        </div>
+        <div class="w-100 d-flex  m-b-20 w-100 flex-1">
+          <p class="m-b-0 m-t-10 w-25 f-w-500 t-primary">Description (EN)</p>
+          <textarea type="text" class="input-field p-l-5 f-s-14 w-75 h-desc" placeholder="Description (EN)"
+              formControlName="descriptionEn" id="GroupName"></textarea>
+        </div>
+        <div class="w-100 d-flex  m-b-20 w-100 flex-1">
+          <p class="m-b-0 m-t-10 w-25 f-w-500 t-primary">Description (FR)</p>
+          <textarea type="text" class="input-field p-l-5 f-s-14 w-75 h-desc" placeholder="Description (FR)"
+              formControlName="descriptionFr" id="GroupName"></textarea>
+        </div>
+    </form>
+  </div>
+  <div class="additional-info-container m-b-10 p-r-10">
+    <div class="additional-info-header" (click)="toggleTable()">
+      <div class="d-flex align-center j-center">
+        <span class="d-flex align-center j-center m-r-3">
+          <i class="material-icons">{{ !isExpanded ? 'expand_more' : 'expand_less' }}</i>
+        </span>
+        <span>Additional Information</span>
+      </div>
+
+      <button class="add-info-button" (click)="addNewInformation()">Add New Information</button>
+    </div>
+
+    <table class="additional-info-table" *ngIf="isExpanded">
+      <!-- <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+        </tr>
+      </thead> -->
+      <tbody>
+        <tr *ngFor="let info of additionalInformation">
+          <td>{{ info.title }}</td>
+          <td>{{ info.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="additional-info-container p-r-10">
+    <div class="additional-info-header m-b-10" (click)="toggleAttributesList()">
+      <div class="d-flex align-center j-center">
+        <span class="d-flex align-center j-center m-r-3">
+          <i class="material-icons">{{ !isAttributesListExpanded ? 'expand_more' : 'expand_less' }}</i>
+        </span>
+        <span>Attributes</span>
+      </div>
+
+      <button class="add-info-button" (click)="addNewInformation()">Add Attributes</button>
+    </div>
+    <!-- <div *ngIf="isAttributesListExpanded" class="attributes-table w-100">
+      <table class="additional-info-table w-100">
+        <thead class="w-100 thead-h">
+          <tr>
+            <th>#</th>
+            <th>Attribute Name</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+    </div> -->
+
+    <div *ngIf="isAttributesListExpanded" class="attributes-table w-100">
+      <table class="additional-info-table w-100">
+        <thead class="w-100 thead-h">
+          <tr>
+            <th>#</th>
+            <th>Attribute Name</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let attribute of attributesList; let i = index">
+            <ng-container [ngTemplateOutlet]="renderAttribute" [ngTemplateOutletContext]="{ attribute: attribute, level: 0, uniqueId: i + '' }"></ng-container>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Recursive Template for Nested Attributes -->
+    <ng-template #renderAttribute let-attribute="attribute" let-level="level" let-uniqueId="uniqueId">
+      <tr
+        class="p-relative"
+        (mouseenter)="hoveredRow = uniqueId"
+        (mouseleave)="hoveredRow = null"
+      >
+        <td></td>
+        <td [class]="'padding-level-' + level">
+          {{ attribute.name }}
+        </td>
+        <td>{{ attribute.description }}</td>
+        <div class="actions p-absolute" *ngIf="hoveredRow === uniqueId">
+          <button class="action-button remove-button" (click)="removeAttribute(uniqueId)">Remove</button>
+          <button class="action-button configure-button" (click)="configureAttribute(attribute)">Configure</button>
+        </div>
+      </tr>
+      <ng-container *ngIf="attribute.children?.length">
+        <ng-container *ngFor="let child of attribute.children; let childIndex = index">
+          <ng-container
+            [ngTemplateOutlet]="renderAttribute"
+            [ngTemplateOutletContext]="{
+              attribute: child,
+              level: level + 1,
+              uniqueId: uniqueId + '-' + childIndex
+            }"
+          ></ng-container>
+        </ng-container>
+      </ng-container>
+    </ng-template>
+
+
+  </div>
+</div>
+
+

@@ -1,0 +1,10 @@
+<div class="image-container" (mousedown)="startDrag($event)" (mouseup)="endDrag()" (mouseleave)="endDrag()">
+  <img
+    [src]="element?.file"
+    [alt]="'Image'"
+    [ngStyle]="element?.styles"
+    [style.transform]="transformStyle"
+    (mousemove)="onDrag($event)"
+    class="draggable-image"
+  />
+</div>
